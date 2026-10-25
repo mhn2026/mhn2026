@@ -754,6 +754,58 @@
             "target": {
               "cell": "ae357dbe-9619-4b3d-b06e-7548c277979d",
               "port": "e42556a4-0773-4dd2-a215-5824983a660e"
+            },
+            "vertices": [
+              {
+                "x": 1210,
+                "y": -180
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "62281a1f-7dc6-4b25-88a5-457cb8fcb595",
+            "source": {
+              "x": 640,
+              "y": -522
+            },
+            "target": {
+              "x": 740,
+              "y": -422
             }
           },
           {
@@ -1107,8 +1159,8 @@
           },
           {
             "position": {
-              "x": 1270,
-              "y": -210.0000000000003
+              "x": 1380,
+              "y": -220
             },
             "size": {
               "width": 120,
@@ -1129,6 +1181,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 15,
             "ports": {
               "groups": {
                 "top": {
@@ -1212,7 +1265,6 @@
               ]
             },
             "id": "ae357dbe-9619-4b3d-b06e-7548c277979d",
-            "zIndex": 15,
             "data": {
               "type": "tm.Store",
               "name": "System linii lotniczych",
@@ -1249,7 +1301,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Data Flow",
+              "name": "żądanie API - wyszukiwarka lotów, rezerwacja miejsc\n",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1263,17 +1315,27 @@
               "trustBoundaryIds": []
             },
             "labels": [
-              "Data Flow"
+              "żądanie API - wyszukiwarka lotów, rezerwacja miejsc\n"
             ],
             "id": "d25cb7ff-1391-4701-9195-6b2eb0b765a7",
             "source": {
-              "x": 1260,
-              "y": -150
+              "cell": "ae357dbe-9619-4b3d-b06e-7548c277979d",
+              "port": "e42556a4-0773-4dd2-a215-5824983a660e"
             },
             "target": {
               "cell": "70bf6744-00d7-4714-8594-2fe8819b271e",
               "port": "e11c6902-1a79-456c-8809-5162b6a8c467"
-            }
+            },
+            "vertices": [
+              {
+                "x": 1130,
+                "y": -70
+              },
+              {
+                "x": 1110,
+                "y": -70
+              }
+            ]
           }
         ]
       }
