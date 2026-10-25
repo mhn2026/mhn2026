@@ -18,7 +18,446 @@
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
         "version": "2.6.2",
-        "cells": []
+        "cells": [
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": -1,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Trust Boundary"
+            ],
+            "id": "cafb31ba-c6c4-49d3-9e64-32aea07f6acd",
+            "source": {
+              "x": 270,
+              "y": -580
+            },
+            "target": {
+              "x": 270,
+              "y": 70
+            },
+            "vertices": []
+          },
+          {
+            "position": {
+              "x": 70,
+              "y": -300
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Użytkownik"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "d2541eb5-7fce-4c7b-bfca-61fb8569fd79"
+                },
+                {
+                  "group": "right",
+                  "id": "3a53e8e7-23a4-4d74-8014-91553d2bf9e7"
+                },
+                {
+                  "group": "bottom",
+                  "id": "99b8c43a-aefd-472d-ba34-370351058b70"
+                },
+                {
+                  "group": "left",
+                  "id": "bac2c1cb-c172-4ea9-9d88-22cff802f87a"
+                }
+              ]
+            },
+            "id": "d8c5e024-c893-4be6-b148-f600c369f543",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Użytkownik",
+              "description": "",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "providesAuthentication": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 760,
+              "y": -509.9999999999999
+            },
+            "size": {
+              "width": 210,
+              "height": 200
+            },
+            "attrs": {
+              "text": {
+                "text": "Frontend MobileApp WizzAir"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "c476a816-1522-47b4-8ff1-7257590f88a9"
+                },
+                {
+                  "group": "right",
+                  "id": "e11c6902-1a79-456c-8809-5162b6a8c467"
+                },
+                {
+                  "group": "bottom",
+                  "id": "8b703dd7-4fdd-4ef6-aa05-f42ec1f00e9e"
+                },
+                {
+                  "group": "left",
+                  "id": "72cff483-4932-4ec8-a83d-534f12af796c"
+                }
+              ]
+            },
+            "id": "3c735a52-1652-4f68-a538-fe413b7fb281",
+            "zIndex": 2,
+            "data": {
+              "type": "tm.Process",
+              "name": "Frontend MobileApp WizzAir",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 760,
+              "y": -150.0000000000003
+            },
+            "size": {
+              "width": 210,
+              "height": 210
+            },
+            "attrs": {
+              "text": {
+                "text": "Backend MobileApp WizzAir"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "c476a816-1522-47b4-8ff1-7257590f88a9"
+                },
+                {
+                  "group": "right",
+                  "id": "e11c6902-1a79-456c-8809-5162b6a8c467"
+                },
+                {
+                  "group": "bottom",
+                  "id": "8b703dd7-4fdd-4ef6-aa05-f42ec1f00e9e"
+                },
+                {
+                  "group": "left",
+                  "id": "72cff483-4932-4ec8-a83d-534f12af796c"
+                }
+              ]
+            },
+            "id": "70bf6744-00d7-4714-8594-2fe8819b271e",
+            "zIndex": 3,
+            "data": {
+              "type": "tm.Process",
+              "name": "Backend MobileApp WizzAir",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "d3015e3d-0d96-4ceb-8e8f-671ca67e7819",
+            "source": {
+              "cell": "d8c5e024-c893-4be6-b148-f600c369f543",
+              "port": "d2541eb5-7fce-4c7b-bfca-61fb8569fd79"
+            },
+            "target": {
+              "cell": "3c735a52-1652-4f68-a538-fe413b7fb281",
+              "port": "72cff483-4932-4ec8-a83d-534f12af796c"
+            },
+            "vertices": [
+              {
+                "x": 126,
+                "y": -390
+              }
+            ]
+          }
+        ]
       }
     ],
     "diagramTop": 1,
