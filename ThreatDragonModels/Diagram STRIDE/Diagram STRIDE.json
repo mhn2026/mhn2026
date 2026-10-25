@@ -456,7 +456,7 @@
                 "y": -390
               },
               {
-                "x": 450,
+                "x": 510,
                 "y": -390
               }
             ]
@@ -1057,13 +1057,6 @@
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -1359,6 +1352,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 0
+    "threatTop": 3
   }
 }
