@@ -730,7 +730,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "dostępne loty, ceny status rezerwacji\n",
+              "name": "dostępne loty, \nceny, status rezerwacji\n",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -744,12 +744,12 @@
               "trustBoundaryIds": []
             },
             "labels": [
-              "dostępne loty, ceny status rezerwacji\n"
+              "dostępne loty, \nceny, status rezerwacji\n"
             ],
             "id": "d6979184-5453-46d6-a644-264558eb4bce",
             "source": {
               "x": 970,
-              "y": -101
+              "y": -91
             },
             "target": {
               "cell": "ae357dbe-9619-4b3d-b06e-7548c277979d",
@@ -758,7 +758,7 @@
             "vertices": [
               {
                 "x": 1210,
-                "y": -180
+                "y": -170
               }
             ]
           },
@@ -782,7 +782,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Data Flow",
+              "name": "Potwierdzenie rezerwacji \ne-mail/bilet lotniczy\n",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -796,17 +796,27 @@
               "trustBoundaryIds": []
             },
             "labels": [
-              "Data Flow"
+              "Potwierdzenie rezerwacji \ne-mail/bilet lotniczy\n"
             ],
             "id": "62281a1f-7dc6-4b25-88a5-457cb8fcb595",
             "source": {
-              "x": 640,
-              "y": -522
+              "x": 790,
+              "y": -330
             },
             "target": {
-              "x": 740,
-              "y": -422
-            }
+              "cell": "d8c5e024-c893-4be6-b148-f600c369f543",
+              "port": "99b8c43a-aefd-472d-ba34-370351058b70"
+            },
+            "vertices": [
+              {
+                "x": 480,
+                "y": -200
+              },
+              {
+                "x": 470,
+                "y": -200
+              }
+            ]
           },
           {
             "position": {
@@ -1047,6 +1057,13 @@
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -1160,7 +1177,7 @@
           {
             "position": {
               "x": 1380,
-              "y": -220
+              "y": -140
             },
             "size": {
               "width": 120,
@@ -1301,7 +1318,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "żądanie API - wyszukiwarka lotów, rezerwacja miejsc\n",
+              "name": "żądanie API \nwyszukiwarka lotów, rezerwacja miejsc\n",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1315,7 +1332,7 @@
               "trustBoundaryIds": []
             },
             "labels": [
-              "żądanie API - wyszukiwarka lotów, rezerwacja miejsc\n"
+              "żądanie API \nwyszukiwarka lotów, rezerwacja miejsc\n"
             ],
             "id": "d25cb7ff-1391-4701-9195-6b2eb0b765a7",
             "source": {
@@ -1329,11 +1346,11 @@
             "vertices": [
               {
                 "x": 1130,
-                "y": -70
+                "y": -60
               },
               {
                 "x": 1110,
-                "y": -70
+                "y": -60
               }
             ]
           }
