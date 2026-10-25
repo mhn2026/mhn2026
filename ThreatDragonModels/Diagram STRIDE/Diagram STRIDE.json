@@ -711,9 +711,55 @@
             ]
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "dostępne loty, ceny status rezerwacji\n",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "dostępne loty, ceny status rezerwacji\n"
+            ],
+            "id": "d6979184-5453-46d6-a644-264558eb4bce",
+            "source": {
+              "x": 970,
+              "y": -101
+            },
+            "target": {
+              "cell": "ae357dbe-9619-4b3d-b06e-7548c277979d",
+              "port": "e42556a4-0773-4dd2-a215-5824983a660e"
+            }
+          },
+          {
             "position": {
-              "x": 1150,
-              "y": -290
+              "x": 1180,
+              "y": -330
             },
             "size": {
               "width": 280,
@@ -721,7 +767,7 @@
             },
             "attrs": {
               "text": {
-                "text": "baza danych użytkowników/lotów/rezerwacji "
+                "text": "baza danych użytkowników/rezerwacji "
               },
               "topLine": {
                 "strokeWidth": 1.5,
@@ -820,7 +866,7 @@
             "id": "2c7a76b2-a6bc-4e8f-99ce-541988b69144",
             "data": {
               "type": "tm.Store",
-              "name": "baza danych użytkowników/lotów/rezerwacji ",
+              "name": "baza danych użytkowników/rezerwacji ",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1027,7 +1073,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Data Flow",
+              "name": "Odpowiedź SQL",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1041,7 +1087,7 @@
               "trustBoundaryIds": []
             },
             "labels": [
-              "Data Flow"
+              "Odpowiedź SQL"
             ],
             "id": "00aa224e-d634-4383-b5cf-5ec8cc4e6840",
             "source": {
@@ -1058,6 +1104,176 @@
                 "y": -290
               }
             ]
+          },
+          {
+            "position": {
+              "x": 1270,
+              "y": -210.0000000000003
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "System linii lotniczych"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "8e7d3066-598b-4c48-a451-c926f37d09b1"
+                },
+                {
+                  "group": "right",
+                  "id": "95df0c6d-f6c3-4e6d-ad52-18a3ae56401f"
+                },
+                {
+                  "group": "bottom",
+                  "id": "99095525-9b64-48c2-afe4-a979afa872d1"
+                },
+                {
+                  "group": "left",
+                  "id": "e42556a4-0773-4dd2-a215-5824983a660e"
+                }
+              ]
+            },
+            "id": "ae357dbe-9619-4b3d-b06e-7548c277979d",
+            "zIndex": 15,
+            "data": {
+              "type": "tm.Store",
+              "name": "System linii lotniczych",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": []
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 16,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "d25cb7ff-1391-4701-9195-6b2eb0b765a7",
+            "source": {
+              "x": 1260,
+              "y": -150
+            },
+            "target": {
+              "cell": "70bf6744-00d7-4714-8594-2fe8819b271e",
+              "port": "e11c6902-1a79-456c-8809-5162b6a8c467"
+            }
           }
         ]
       }
