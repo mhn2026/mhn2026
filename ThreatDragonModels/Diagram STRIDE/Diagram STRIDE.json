@@ -197,8 +197,8 @@
                 "text": "Frontend MobileApp WizzAir"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -295,12 +295,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "12d550c1-eb75-4256-89e0-f41daa1aabe0",
+                  "title": "Nieszyfrowane przechowywanie danych sesji i pasażerów w pamięci urządzenia",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Aplikacja Frontend MobileApp WizzAir zapisuje tokeny uwierzytelniające, dane paszportowe oraz historię podróży w otwartych plikach lokalnych urządzenia mobilnego. Złośliwe oprogramowanie na zrootowanym/jailbreakowanym urządzeniu lub osoba mająca fizyczny dostęp do telefonu może te dane bez przeszkód odczytać.",
+                  "mitigation": "Przechowywanie tokenów i danych wrażliwych wyłącznie w bezpiecznych magazynach systemowych (Android KeyStore / EncryptedSharedPreferences oraz iOS Keychain) i niewpisywanie danych pasażerów do tymczasowego cache'u aplikacji.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": "6.0"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -739,23 +761,14 @@
                 "x": 740,
                 "y": -80
               }
-            ],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
+            ]
           },
           {
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -776,13 +789,32 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "432197fc-2b81-4836-90fc-7cdc336bdf81",
+                  "title": "Wyczerpanie limitów i blokada integracji z operatorem płatności",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Atakujący masowo tworzy porzucone transakcje, wywołując tysiące żądań inicjacji płatności do Operatora płatności. Przekracza to limity zapytań (rate limits) nałożone na konto linii lotniczej, paraliżując procesowanie płatności dla wszystkich klientów.",
+                  "mitigation": "Wdrożenie wewnętrznych limitów zapytań przed przekazaniem ruchu do bramki zewnętrznej, weryfikacja CAPTCHA przed przejściem do płatności oraz automatyczne odrzucanie podejrzanych transakcji z tego samego adresu IP/konta.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": "6.9"
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "Żądanie płatności "
@@ -798,7 +830,7 @@
             },
             "vertices": [
               {
-                "x": 1070,
+                "x": 1050,
                 "y": 17
               }
             ]
@@ -1487,6 +1519,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 8
+    "threatTop": 10
   }
 }
