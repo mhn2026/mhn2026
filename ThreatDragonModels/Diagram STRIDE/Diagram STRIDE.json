@@ -293,8 +293,8 @@
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Information disclosure",
-                  "description": "Aplikacja Frontend MobileApp WizzAir zapisuje tokeny uwierzytelniające, dane paszportowe oraz historię podróży w otwartych plikach lokalnych urządzenia mobilnego. Złośliwe oprogramowanie na zrootowanym/jailbreakowanym urządzeniu lub osoba mająca fizyczny dostęp do telefonu może te dane bez przeszkód odczytać.",
-                  "mitigation": "Przechowywanie tokenów i danych wrażliwych wyłącznie w bezpiecznych magazynach systemowych (Android KeyStore / EncryptedSharedPreferences oraz iOS Keychain) i niewpisywanie danych pasażerów do tymczasowego cache'u aplikacji.",
+                  "description": "Aplikacja mobilna może zapisywać wrażliwe tokeny sesyjne, dane logowania i informacje z paszportu w niezabezpieczonych plikach lokalnych telefonu. W przypadku kradzieży urządzenia lub przejęcia kontroli przez złośliwe oprogramowanie (np. na zrootowanym systemie), atakujący z łatwością wykradnie te dane.",
+                  "mitigation": "Szyfrować wszystkie dane wrażliwe po stronie urządzenia przy użyciu wbudowanych, systemowych magazynów kryptograficznych (Android KeyStore, iOS Keychain). Wyłączyć tymczasowy cache aplikacji dla formularzy z danymi osobowymi.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 10,
@@ -305,7 +305,7 @@
                 "spoofing": 0,
                 "tampering": 0,
                 "repudiation": 0,
-                "informationDisclosure": 2,
+                "informationDisclosure": 3,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
               }
@@ -756,7 +756,7 @@
               ],
               "trustBoundaryIds": [],
               "threatFrequency": {
-                "tampering": 2,
+                "tampering": 3,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
