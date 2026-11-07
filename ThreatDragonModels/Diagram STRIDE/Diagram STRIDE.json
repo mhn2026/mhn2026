@@ -165,7 +165,7 @@
               "threats": [
                 {
                   "id": "9a474e82-f7c8-4edc-8827-ef29c711624f",
-                  "title": "New STRIDE threat",
+                  "title": "Podszycie się pod tożsamość użytkownika przy logowaniu",
                   "status": "Open",
                   "severity": "High",
                   "type": "Spoofing",
@@ -178,16 +178,9 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 1,
+                "spoofing": 2,
                 "repudiation": 0
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -479,12 +472,33 @@
               {
                 "x": 126,
                 "y": -390
-              },
-              {
-                "x": 510,
-                "y": -390
               }
-            ]
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           },
           {
             "shape": "flow",
@@ -542,7 +556,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -563,13 +578,32 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "8d0d6ea9-7f44-465d-a058-1792fc28b008",
+                  "title": "Nieautoryzowany dostęp do cudzych rezerwacji (BOLA / IDOR)",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Uwierzytelniony użytkownik manipuluje identyfikatorem rezerwacji (np. booking_id lub kodem PNR) w ciele żądania API wysyłanego z Frontend MobileApp do Backend API. Z powodu braku weryfikacji prawa własności do obiektu, atakujący uzyskuje wgląd w dane osobowe i plany podróży innych pasażerów.",
+                  "mitigation": "Rygorystyczna kontrola dostępu na poziomie każdego obiektu (Object-Level Authorization) – sprawdzanie, czy identyfikator z tokenu sesyjnego użytkownika ściśle odpowiada właścicielowi pobieranego zasobu. Stosowanie nieprzewidywalnych identyfikatorów (UUIDv4) zamiast sekwencyjnych liczb.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": "8.6"
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "żądania API"
@@ -791,7 +825,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -812,13 +847,32 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "8d245191-f27d-48d8-a1ea-8c65b271502f",
+                  "title": "Wyciek danych osobowych i biletów przez e-mail",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Podmiot podsłuchujący ruch sieciowy przechwytuje przepływ Potwierdzenie rezerwacji e-mail/bilet lotniczy kierowany do Użytkownika, jeśli serwery pocztowe komunikują się w nieszyfrowanym kanale (brak wymuszenia TLS). Skutkuje to ujawnieniem danych osobowych (RODO), numeru paszportu oraz kodu PNR, co pozwala na nieuprawnione modyfikacje rezerwacji.",
+                  "mitigation": "Wymuszenie protokołów MTA-STS i DANE na serwerach pocztowych, stosowanie szyfrowania STARTTLS w komunikacji SMTP oraz nieumieszczanie pełnych danych wrażliwych bezpośrednio w treści e-maila (zamiast tego wysyłanie bezpiecznego linku uwierzytelnionego do portalu).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": "6.5"
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 2,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Potwierdzenie rezerwacji \ne-mail/bilet lotniczy\n"
@@ -834,11 +888,15 @@
             },
             "vertices": [
               {
-                "x": 480,
+                "x": 540,
+                "y": -230
+              },
+              {
+                "x": 490,
                 "y": -200
               },
               {
-                "x": 470,
+                "x": 380,
                 "y": -200
               }
             ]
@@ -981,8 +1039,8 @@
                 "text": "Operator płatnośći"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1079,9 +1137,27 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "ac83ea6e-a476-45a6-adff-d8a137522dda",
+                  "title": "Brak niezaprzeczalności transakcji rezerwacji i płatności",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Nieuczciwy użytkownik po zakupie i wykorzystaniu biletu wypiera się wykonania transakcji i żąda nieuzasadnionego obciążenia zwrotnego (chargeback). W przypadku braku powiązania sesji, adresu IP, identyfikatora transakcji operatora i audytowalnych logów w Backend API, linia lotnicza nie ma dowodów prawnych do odrzucenia roszczenia.",
+                  "mitigation": "Wdrożenie scentralizowanego, nienaruszalnego rejestru zdarzeń audytowych (Append-Only Audit Logs) z podpisem cyfrowym i dokładnym znacznikiem czasu (NTP), rejestrującego ID użytkownika, adres IP, fingerprint urządzenia, ID transakcji płatniczej oraz protokoły 3-D Secure.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": "5.5"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "repudiation": 2
+              }
             }
           },
           {
@@ -1377,6 +1453,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 4
+    "threatTop": 7
   }
 }
