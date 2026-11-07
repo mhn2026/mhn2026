@@ -62,8 +62,8 @@
                 "text": "Użytkownik"
               },
               "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -160,34 +160,13 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "providesAuthentication": false,
-              "threats": [
-                {
-                  "id": "9a474e82-f7c8-4edc-8827-ef29c711624f",
-                  "title": "Podszycie się pod tożsamość użytkownika przy logowaniu",
-                  "status": "Open",
-                  "severity": "High",
-                  "type": "Spoofing",
-                  "description": "Atakujący znajdujący się w niezabezpieczonej sieci Wi-Fi może przechwycić poświadczenia logowania przesyłane z Frontend MobileApp WizzAir do Backend API (np. przy braku mechanizmu SSL Pinning) lub wykorzystać wyciekłe hasła w ataku credential stuffing. Skutkiem jest przejęcie konta ofiary, dostęp do jej danych osobowych oraz nieautoryzowane zarządzanie jej rezerwacjam",
-                  "mitigation": "Wdrożenie przypinania certyfikatów (SSL/TLS Pinning) w aplikacji mobilnej, wymuszenie silnych haseł, uwierzytelnianie dwuskładnikowe (2FA/MFA) oraz ochrona przed atakami brute-force/credential stuffing po stronie API (rate limiting, blokowanie IP, CAPTCHA).",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 4,
-                  "score": "8.1"
-                }
-              ],
+              "threats": [],
               "threatFrequency": {
-                "spoofing": 2,
+                "spoofing": 1,
                 "repudiation": 0
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -319,14 +298,14 @@
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 10,
-                  "score": "6.0"
+                  "score": "2"
                 }
               ],
               "threatFrequency": {
                 "spoofing": 0,
                 "tampering": 0,
                 "repudiation": 0,
-                "informationDisclosure": 1,
+                "informationDisclosure": 2,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
               }
@@ -497,12 +476,6 @@
               "cell": "3c735a52-1652-4f68-a538-fe413b7fb281",
               "port": "72cff483-4932-4ec8-a83d-534f12af796c"
             },
-            "vertices": [
-              {
-                "x": 126,
-                "y": -390
-              }
-            ],
             "tools": {
               "items": [
                 "boundary",
@@ -542,7 +515,13 @@
                 "target-arrowhead"
               ],
               "name": null
-            }
+            },
+            "vertices": [
+              {
+                "x": 126,
+                "y": -390
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -752,12 +731,12 @@
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 8,
-                  "score": "7.4"
+                  "score": "3"
                 }
               ],
               "trustBoundaryIds": [],
               "threatFrequency": {
-                "tampering": 1,
+                "tampering": 2,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
@@ -783,7 +762,17 @@
                 "x": 740,
                 "y": -80
               }
-            ]
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           },
           {
             "shape": "flow",
@@ -952,13 +941,13 @@
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 5,
-                  "score": "6.5"
+                  "score": "2"
                 }
               ],
               "trustBoundaryIds": [],
               "threatFrequency": {
                 "tampering": 0,
-                "informationDisclosure": 2,
+                "informationDisclosure": 3,
                 "denialOfService": 0
               }
             },
@@ -1541,6 +1530,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 10
+    "threatTop": 11
   }
 }
