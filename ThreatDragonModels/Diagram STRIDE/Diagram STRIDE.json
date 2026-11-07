@@ -613,8 +613,8 @@
                   "status": "Open",
                   "severity": "High",
                   "type": "Information disclosure",
-                  "description": "Uwierzytelniony użytkownik manipuluje identyfikatorem rezerwacji (np. booking_id lub kodem PNR) w ciele żądania API wysyłanego z Frontend MobileApp do Backend API. Z powodu braku weryfikacji prawa własności do obiektu, atakujący uzyskuje wgląd w dane osobowe i plany podróży innych pasażerów.",
-                  "mitigation": "Rygorystyczna kontrola dostępu na poziomie każdego obiektu (Object-Level Authorization) – sprawdzanie, czy identyfikator z tokenu sesyjnego użytkownika ściśle odpowiada właścicielowi pobieranego zasobu. Stosowanie nieprzewidywalnych identyfikatorów (UUIDv4) zamiast sekwencyjnych liczb.",
+                  "description": "Atakujący może zmienić identyfikator rezerwacji w żądaniu API i pobrać cudze dane osobowe oraz plany podróży, jeśli backend nie sprawdza uprawnień przypisanych do tego konkretnego zasobu.",
+                  "mitigation": "Sprawdzać uprawnienia właściciela przy każdym endpointcie API. Przed zwróceniem danych weryfikować, czy token sesyjny zgadza się z przypisaniem zasobu w bazie, oraz zmienić sekwencyjne identyfikatory lotów na trudne do odgadnięcia UUIDv4.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 7,
@@ -624,7 +624,7 @@
               "trustBoundaryIds": [],
               "threatFrequency": {
                 "tampering": 0,
-                "informationDisclosure": 2,
+                "informationDisclosure": 3,
                 "denialOfService": 0
               }
             },
@@ -680,8 +680,8 @@
                   "status": "Open",
                   "severity": "Critical",
                   "type": "Tampering",
-                  "description": "Zewnętrzny atakujący przesyła spreparowane zapytania w parametrach żądań z aplikacji mobilnej do Backend API. Brak właściwej sanityzacji wejścia umożliwia wykonanie nieautoryzowanego kodu SQL w magazynie baza danych użytkowników/rezerwacji, prowadząc do modyfikacji danych rezerwacji, zmiany cen biletów, kradzieży całej bazy lub usunięcia rekordów.",
-                  "mitigation": "Stosowanie zapytań parametryzowanych (Prepared Statements) lub bezpiecznego ORM, rygorystyczna walidacja typów danych wejściowych (allow-listing) oraz ograniczenie uprawnień konta bazodanowego do niezbędnego minimum (zasada Least Privilege).",
+                  "description": "Atakujący może wstrzyknąć złośliwy kod SQL poprzez pola formularza w aplikacji lub parametry w żądaniu API. Jeśli backend nie waliduje i nie filtruje tych danych, pozwoli to hakerowi na nieautoryzowany dostęp, modyfikację, a nawet usunięcie całych tabel rezerwacji i użytkowników z bazy danych",
+                  "mitigation": "Stosować wyłącznie zapytania parametryzowane (Prepared Statements) lub bezpieczny ORM. Wprowadzić walidację wszystkich danych wejściowych (allow-listing) oraz ograniczyć uprawnienia konta backendu w bazie danych do ścisłego minimum (tylko odczyt/zapis potrzebnych tabel).",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 12,
@@ -690,7 +690,7 @@
               ],
               "trustBoundaryIds": [],
               "threatFrequency": {
-                "tampering": 1,
+                "tampering": 2,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
