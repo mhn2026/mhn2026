@@ -62,8 +62,8 @@
                 "text": "Użytkownik"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -160,9 +160,34 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "9a474e82-f7c8-4edc-8827-ef29c711624f",
+                  "title": "New STRIDE threat",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Atakujący znajdujący się w niezabezpieczonej sieci Wi-Fi może przechwycić poświadczenia logowania przesyłane z Frontend MobileApp WizzAir do Backend API (np. przy braku mechanizmu SSL Pinning) lub wykorzystać wyciekłe hasła w ataku credential stuffing. Skutkiem jest przejęcie konta ofiary, dostęp do jej danych osobowych oraz nieautoryzowane zarządzanie jej rezerwacjam",
+                  "mitigation": "Wdrożenie przypinania certyfikatów (SSL/TLS Pinning) w aplikacji mobilnej, wymuszenie silnych haseł, uwierzytelnianie dwuskładnikowe (2FA/MFA) oraz ochrona przed atakami brute-force/credential stuffing po stronie API (rate limiting, blokowanie IP, CAPTCHA).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": "8.1"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 0
+              }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -1352,6 +1377,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 3
+    "threatTop": 4
   }
 }
