@@ -669,7 +669,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -690,13 +691,32 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "63331be7-0889-42ef-9527-e70781669e98",
+                  "title": "Manipulacja parametrami rezerwacji w locie",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Użytkownik przechwytuje ruch z aplikacji mobilnej i modyfikuje pola żądania API wysyłanego do Backend API, zmieniając wyliczoną cenę biletu lub dodając płatne usługi dodatkowe z zerową wartością. Skutkuje to zakupem usług lotniczych po zaniżonej cenie.",
+                  "mitigation": "Przeniesienie całości kalkulacji kwot do Backend API, ignorowanie jakichkolwiek pól cenowych przesyłanych przez klienta oraz rygorystyczna walidacja schematu żądań na serwerze.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": "7.4"
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Data Flow"
@@ -712,10 +732,24 @@
             },
             "vertices": [
               {
+                "x": 760,
+                "y": -200
+              },
+              {
                 "x": 740,
                 "y": -80
               }
-            ]
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           },
           {
             "shape": "flow",
@@ -1453,6 +1487,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 7
+    "threatTop": 8
   }
 }
