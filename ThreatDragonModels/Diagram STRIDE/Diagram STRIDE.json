@@ -646,7 +646,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -667,13 +668,32 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "48bea905-f7d8-4991-8482-acb3a51e86c9",
+                  "title": "SQL Injection w bazie danych rezerwacji",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Tampering",
+                  "description": "Zewnętrzny atakujący przesyła spreparowane zapytania w parametrach żądań z aplikacji mobilnej do Backend API. Brak właściwej sanityzacji wejścia umożliwia wykonanie nieautoryzowanego kodu SQL w magazynie baza danych użytkowników/rezerwacji, prowadząc do modyfikacji danych rezerwacji, zmiany cen biletów, kradzieży całej bazy lub usunięcia rekordów.",
+                  "mitigation": "Stosowanie zapytań parametryzowanych (Prepared Statements) lub bezpiecznego ORM, rygorystyczna walidacja typów danych wejściowych (allow-listing) oraz ograniczenie uprawnień konta bazodanowego do niezbędnego minimum (zasada Least Privilege).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": "4"
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "zapytanie SQL"
@@ -802,8 +822,8 @@
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Denial of service",
-                  "description": "Atakujący masowo tworzy porzucone transakcje, wywołując tysiące żądań inicjacji płatności do Operatora płatności. Przekracza to limity zapytań (rate limits) nałożone na konto linii lotniczej, paraliżując procesowanie płatności dla wszystkich klientów.",
-                  "mitigation": "Wdrożenie wewnętrznych limitów zapytań przed przekazaniem ruchu do bramki zewnętrznej, weryfikacja CAPTCHA przed przejściem do płatności oraz automatyczne odrzucanie podejrzanych transakcji z tego samego adresu IP/konta.",
+                  "description": "Atakujący może masowo generować fałszywe, niedokończone rezerwacje, wysyłając tysiące zapytań z backendu do zewnętrznej bramki płatniczej. Doprowadzi to do zablokowania usług przez operatora z powodu wyczerpania limitów API, uniemożliwiając płacenie prawdziwym klientom.",
+                  "mitigation": "Ustawić limity zapytań (rate limiting) już po stronie własnego backendu, przed przekazaniem ruchu do bramki operatora. Stosować blokady dla powtarzających się adresów IP i wdrożyć CAPTCHA dla kont o anomalnej aktywności.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 9,
@@ -814,7 +834,7 @@
               "threatFrequency": {
                 "tampering": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 2
+                "denialOfService": 3
               }
             },
             "labels": [
@@ -1213,8 +1233,8 @@
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Repudiation",
-                  "description": "Nieuczciwy użytkownik po zakupie i wykorzystaniu biletu wypiera się wykonania transakcji i żąda nieuzasadnionego obciążenia zwrotnego (chargeback). W przypadku braku powiązania sesji, adresu IP, identyfikatora transakcji operatora i audytowalnych logów w Backend API, linia lotnicza nie ma dowodów prawnych do odrzucenia roszczenia.",
-                  "mitigation": "Wdrożenie scentralizowanego, nienaruszalnego rejestru zdarzeń audytowych (Append-Only Audit Logs) z podpisem cyfrowym i dokładnym znacznikiem czasu (NTP), rejestrującego ID użytkownika, adres IP, fingerprint urządzenia, ID transakcji płatniczej oraz protokoły 3-D Secure.",
+                  "description": "Użytkownik po zakupie i wykorzystaniu biletu może wyprzeć się tej akcji i zażądać zwrotu środków przez bank (chargeback). Jeśli system backendowy nie loguje precyzyjnie powiązania między sesją aplikacji, adresem IP a identyfikatorem płatności, linia lotnicza nie będzie miała cyfrowych dowodów na odrzucenie roszczenia.",
+                  "mitigation": "Wdrożyć nienaruszalne logi audytowe (Append-Only Logs) rejestrujące każdą próbę transakcji. Zapisywać przy każdym żądaniu ID użytkownika, adres IP i odcisk palca urządzenia (fingerprint) oraz bezwzględnie wymuszać autoryzację płatności przez 3-D Secure",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 6,
@@ -1223,7 +1243,7 @@
               ],
               "threatFrequency": {
                 "spoofing": 0,
-                "repudiation": 3
+                "repudiation": 4
               }
             }
           },
@@ -1520,6 +1540,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 11
+    "threatTop": 12
   }
 }
