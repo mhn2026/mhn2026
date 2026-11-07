@@ -618,13 +618,13 @@
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 7,
-                  "score": "8.6"
+                  "score": "3"
                 }
               ],
               "trustBoundaryIds": [],
               "threatFrequency": {
                 "tampering": 0,
-                "informationDisclosure": 1,
+                "informationDisclosure": 2,
                 "denialOfService": 0
               }
             },
@@ -762,17 +762,7 @@
                 "x": 740,
                 "y": -80
               }
-            ],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
+            ]
           },
           {
             "shape": "flow",
